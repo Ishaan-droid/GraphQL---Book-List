@@ -9,7 +9,10 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Genre of Book is required'],
   },
-  authorID: String,
+  authorId: {
+    type: String,
+    required: [true, 'AuthorID is required.'],
+  },
 });
 
-module.exports = mongoose.model('Book', bookSchema);
+module.exports = mongoose.model('book', bookSchema);
