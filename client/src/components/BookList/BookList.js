@@ -5,7 +5,7 @@ import { getBooksQuery } from '../../Utils/Queries';
 const BookList = () => {
   const { loading, data } = useQuery(getBooksQuery);
 
-  let displayBooks = loading ? (
+  const displayBooks = loading ? (
     <div>Loading Books...</div>
   ) : (
     data?.books.map(cur => <li key={cur.id}>{cur.name}</li>)
