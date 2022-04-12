@@ -2,10 +2,13 @@ const express = require('express');
 require('dotenv').config({ path: `${__dirname}/../config.env` });
 
 const { graphqlHTTP } = require('express-graphql');
+const cors = require('cors');
 const { connectDB } = require('./Data/connectDB');
 const schema = require('./schema/schema');
 
 const app = express();
+
+app.use(cors());
 
 // CONNECTING TO DB
 connectDB();
