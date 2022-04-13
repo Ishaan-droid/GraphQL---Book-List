@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const { useQuery, useMutation } = require('@apollo/client');
-const { getAuthorQuery, addBookMutation } = require('../../Utils/Queries');
+const { getAuthorQuery, addBookMutation, getBooksQuery } = require('../../Utils/Queries');
 
 const AddBook = () => {
   const [formData, setFormData] = useState({
@@ -52,6 +52,7 @@ const AddBook = () => {
       genre: formData.genre,
       authorId: formData.authorId,
     },
+    refetchQueries: [{ query: getBooksQuery }],
   });
 
   const submitForm = e => {
